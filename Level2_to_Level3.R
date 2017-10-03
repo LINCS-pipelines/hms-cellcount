@@ -16,21 +16,21 @@
 # lvl3 - data frame of mean cell counts, "GR values", and relative cell counts
 # (averaged over technical replicates)
 
-cat("Clear the workspace")
+cat("Clear the workspace\n")
 rm(list = ls())
 
-cat("Loading required packages")
+cat("Loading required packages\n")
 library(readr)
 library(dplyr)
 library(LINCSDataPortal)
 
-cat("Downloading Level 2 dataset from LINCS Data Portal")
+cat("Downloading Level 2 dataset from LINCS Data Portal\n")
 # Download Level 2 dataset
 download_dataset("LDS-1261")
 untar("LDS-1261.tar.gz", exdir = ".")
 system("rm *tar.gz")
 
-cat("Reading dataset into R")
+cat("Reading dataset into R\n")
 # Read datasets into R
 # Note: read_tsv function will incorrectly guess "Small Mol Concentration" as
 # an integer column unless you increase the value of "guess_max"
@@ -40,7 +40,7 @@ lvl2 = read_tsv("LDS-1261/20256.txt", guess_max = 55000)
 # Simply take the mean of the cell counts and GR values for each unique
 # combination of cell line, small molecule, concentration, replicate, and seeding density
 
-cat("Averaging cell counts by each combination of cell line, small molecule, concentration, replicate, and seeding density")
+cat("Averaging cell counts by each combination of cell line, small molecule, concentration, replicate, and seeding density\n")
 lvl3 = lvl2 %>% group_by(`Cell HMS LINCS ID`, `Cell Name`, `Small Molecule HMS LINCS ID`,
                          `Small Molecule Name`, `Small Mol Concentration`,
                          `Small Mol Conc Unit`, Replicate, `Seeding Density`) %>%

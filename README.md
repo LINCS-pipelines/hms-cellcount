@@ -27,17 +27,17 @@ Windows: follow [`the instructions`](https://docs.docker.com/toolbox/toolbox_ins
 ### Download and run the docker container
 To obtain the docker image and run the container,
 ```
-[sudo] docker pull nickclark/hms-docker-test:stable
+[sudo] docker pull ucbd2k/hms-cellcount:stable
 ```
 To run the container execute the following command:
 
 ```
-[sudo] docker run -d -p <available port>:8787 nickclark/hms-docker-test:stable
+[sudo] docker run -d -p <available port>:8787 ucb2dk/hms-cellcount:stable
 ```
 Typically one can use port 8787 if not already used by another application. In that case the command is
 
 ```
-[sudo] docker run -d -p 8787:8787 nickclark/hms-docker-test:stable
+[sudo] docker run -d -p 8787:8787 ucbd2k/hms-cellcount:stable
 ```
 First make sure that port 8787 is free to use for the Rstudio, (Typically Rstudio dockers run on this port, if this port is free ignore the rest of this section). You can stop and kill any other docker containers on this port by
 

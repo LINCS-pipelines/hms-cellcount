@@ -74,6 +74,6 @@ source("Level3_to_Level4.R")
 ```
 ### Note
 
-The output from this script differs from the published GR metrics. The published data was calculated using analogous [MATLAB scripts](https://github.com/datarail/gr_metrics/tree/master/SRC/MATLAB) and published over a year and a half ago. Since then, there have been updates to the scripts in both MATLAB and R.
+The output from this script differs slightly from the released GR metrics data due to some minor modifications in the processing pipeline since the data release.
 
 ---

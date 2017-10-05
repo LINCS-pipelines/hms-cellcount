@@ -26,33 +26,24 @@ Windows: follow [`the instructions`](https://docs.docker.com/toolbox/toolbox_ins
 
 ---
 ### Download and run the docker container
+
+**Note: You may need to add *sudo* before the following commands on Linux or Mac**
+
 To obtain the docker image and run the container,
 ```
-[sudo] docker pull ucbd2k/hms-cellcount:stable
+docker pull ucbd2k/hms-cellcount:stable
 ```
-To run the container execute the following command:
+To run the container, execute the following command:
 
 ```
-[sudo] docker run -d -p <available port>:8787 ucb2dk/hms-cellcount:stable
-```
-Typically one can use port 8787 if not already used by another application. In that case the command is
-
-```
-[sudo] docker run -d -p 8787:8787 ucbd2k/hms-cellcount:stable
-```
-First make sure that port 8787 is free to use for the Rstudio, (Typically Rstudio dockers run on this port, if this port is free ignore the rest of this section). You can stop and kill any other docker containers on this port by
-
-```
-[sudo] docker stop <container ID> && docker rm <container ID>
-```
-To find the container ID, run this command:
-```
-[sudo] docker ps -a
+docker run -d -p 8787:8787 ucbd2k/hms-cellcount:stable
 ```
 ---
-To start an RStudio session, open a browser and type in the address bar ``<Host URL>:<available port as specified>``. Enter `rstudio` for both username and password. For example `http://localhost:8787` on Mac or Linux systems when 8787 port is used.
+If port 8787 is not available, you may need to try another port, for example `docker run -d -p 7777:8787 ucbd2k/hms-cellcount:stable`.
 
-Host URL on Ubuntu and Mac is `localhost`, if accessed locally. On Windows, the IP is shown when Docker is launched by double-clicking the Docker Quickstart Terminal icon on desktop, or it can be obtained from the output of `docker ls` in the interactive shell window.
+To start an RStudio session, open a web browser and type `http://localhost:8787` in the address bar. Enter `rstudio` for both username and password.
+
+**Note: If `localhost` does not work (for example if you are using *Docker Toolbox* for older Mac or Windows systems), use the docker host ip address instead of `localhost`.** Determine the docker host ip with the `docker-machine ip default` command and substitute this ip address for `localhost`. 
 
 ---
 ### Execute the processing pipeline

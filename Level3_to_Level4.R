@@ -35,7 +35,7 @@ system("rm *tar.gz")
 
 cat("Reading dataset into R")
 # Read dataset into R
-lvl3 = read_tsv("LDS-1262/20257.txt")
+lvl3 = read_tsv("LDS-1262/Data/20257.txt")
 
 cat("Renaming data frame columns for input into R function")
 lvl3_rename = lvl3 %>%

@@ -34,7 +34,7 @@ cat("Reading dataset into R\n")
 # Read datasets into R
 # Note: read_tsv function will incorrectly guess "Small Mol Concentration" as
 # an integer column unless you increase the value of "guess_max"
-lvl2 = read_tsv("LDS-1261/20256.txt", guess_max = 55000)
+lvl2 = read_tsv("LDS-1261/Data/20256.txt", guess_max = 55000)
 
 ## Average over technical replicates
 # Simply take the mean of the cell counts and GR values for each unique

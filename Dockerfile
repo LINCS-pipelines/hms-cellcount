@@ -13,10 +13,8 @@ RUN apt-get update -qq && \
     sudo \
     wget
 
-RUN R -e "install.packages(c('devtools'), repos = 'http://cran.us.r-project.org')"
-RUN R -e "devtools::install_version('readr', version = '1.1.1', repos = 'http://cran.us.r-project.org')"
-RUN R -e "devtools::install_version('dplyr', version = '0.7.4', repos = 'http://cran.us.r-project.org')"
-RUN R -e "devtools::install_github('schurerlab/LINCSDataPortal', ref = '3680b4dc2d6b5af192f49987eda96ee477da334a', force=TRUE)"
-
-RUN R -e "source('https://bioconductor.org/biocLite.R'); biocLite('GRmetrics', ask=FALSE); "
- 
+RUN R -e "source('https://bioconductor.org/biocLite.R')"
+RUN R -e "biocLite('GRmetrics', ask=FALSE, siteRepos='https://mran.microsoft.com/snapshot/2017-11-01')"
+RUN R -e "install.packages('ghit', repos = 'https://mran.microsoft.com/snapshot/2017-11-01')"
+RUN R -e "install.packages('readr', repos = 'https://mran.microsoft.com/snapshot/2017-11-01')"
+RUN R -e "ghit::install_github('schurerlab/LINCSDataPortal@3680b4dc2d6b5af192f49987eda96ee477da334a')"

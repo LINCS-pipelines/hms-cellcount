@@ -12,7 +12,7 @@ dose-response metrics (e.g. GR50, GR_AOC). The docker uses the "Breast Cancer De
 generated at the Harvard Medical School HMS LINCS Center as an example.
 
 These data start with cell counts from
-individual wells [(Level 2)](http://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1261). The script `Level2_to_Level3.R` averages these counts
+individual wells [(Level 2)](http://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1261). The script `Level2_to_Level3_and4.R` averages these counts
 over technical replicates and gives a data frame equivalent to the [Level 3 data](http://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1262). It then calculates GR values (analogous to relative cell counts) for the averaged cell counts and fits the data to dose-response curves, giving a data frame of GR values and a data frame of fitted curve metrics equivalent to the [Level 4 data](http://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1263). Traditional metrics based on relative cell counts, such as IC50 and Emax, are calculated as well and reported for comparison.
 
 ---
@@ -51,9 +51,9 @@ To start an RStudio session, open a web browser and type `http://localhost:8787`
 After entering the RStudio environment, type the following command in the console:
 
 ```
-source("Level2_to_Level3.R")
+source("Level2_to_Level3_and4.R")
 ```
-You can also open the R code by clicking the file named `Level2_to_Level3.R` from the files panel in the bottom-right of your window.
+You can also open the R code by clicking the file named `Level2_to_Level3_and4.R` from the files panel in the bottom-right of your window.
 Once you see the code appears in the top-left window, you can click `Source` at the top of the window.
 
 This script will average the cell count data over technical replicates, converting it from [Level 2](http://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1261) data to [Level 3](http://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1262) data. It will then fit (GR) dose-response curves to the averaged cell counts and calculate curve metrics, giving [Level 4](ttp://lincsportal.ccs.miami.edu/datasets-beta/#/view/LDS-1263) data. When it is done, the script will show the Level 3 data (averaged cell counts) and Level 4 data (GR values and fitted curve metrics).

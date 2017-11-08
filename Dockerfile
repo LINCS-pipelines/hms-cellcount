@@ -1,7 +1,6 @@
 FROM rocker/rstudio-stable:3.4.0
 
-COPY ./Level2_to_Level3.R /home/rstudio/
-COPY ./Level3_to_Level4.R /home/rstudio/
+COPY ./Level2_to_Level3_and4.R /home/rstudio/
 
 RUN apt-get update -qq && \
     apt-get install -y \
